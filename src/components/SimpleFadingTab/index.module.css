@@ -115,17 +115,18 @@
 
 .rating-heading {
   color: #a7a4a4;
+  font-weight: 550;
+  /* background-color: yellow; */
 }
 
 .rating-container {
-  /* height: 25px; */
   display: flex;
   /* background-color: red; */
 }
 
-/* .rating-container > div {
+.rating-container > div {
   height: 100%;
-} */
+}
 
 .social-media-icons {
   display: flex;

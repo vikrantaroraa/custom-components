@@ -1,6 +1,6 @@
 .simple-fading-tab {
-  min-height: 200px;
-  height: auto;
+  min-height: 320px;
+  height: fit-content;
   width: 550px;
   background-color: #fff;
 }
@@ -10,9 +10,9 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
-  padding: 0 15px;
+  padding: 8px 15px;
   /* background-color: lightcoral; */
-  margin-bottom: 25px;
+  margin-bottom: 20px;
 }
 
 .heading {

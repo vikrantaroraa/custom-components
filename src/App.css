@@ -1,8 +1,9 @@
 .App {
   display: flex;
-  align-items: center;
-  flex-direction: column;
-  background-color: #efefee;
+  padding: 20px;
+  background-color: #fafaf0;
   min-height: 100vh;
   height: auto;
+  flex-wrap: wrap;
+  gap: 20px;
 }

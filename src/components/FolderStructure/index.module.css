@@ -1,0 +1,21 @@
+.folder-structure {
+  background-color: #fff;
+  padding: 15px 25px;
+  min-width: 250px;
+}
+
+.folder-structure-heading {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.file {
+  display: flex;
+  /* background-color: lightgreen; */
+  gap: 8px;
+}
+
+/* .collapsible-component .file {
+  background-color: lightcoral;
+} */

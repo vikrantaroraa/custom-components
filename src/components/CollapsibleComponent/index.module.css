@@ -1,0 +1,45 @@
+.collpasible-component {
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+}
+
+details > summary {
+  list-style-type: none;
+  gap: 8px;
+  display: flex;
+  align-items: center;
+  align-self: center;
+  /* background-color: lightgreen; */
+}
+
+details > div {
+  padding-left: 30px;
+}
+
+/* details > * {
+  padding-left: 20px;
+} */
+
+.icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* height: 100%;
+  width: 30%; */
+  height: 100%;
+  width: auto;
+  /* background-color: lightpink; */
+}
+
+.icon-container img {
+  height: 60%;
+  width: 60%;
+}
+
+.folder-name {
+  font-size: 18px;
+  gap: 12px;
+  display: flex;
+  /* background-color: red; */
+}

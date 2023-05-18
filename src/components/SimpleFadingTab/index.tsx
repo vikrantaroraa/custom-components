@@ -69,7 +69,6 @@ const buttonsData = [
   { buttonLabel: "Day", variableName: "day" },
 ];
 
-// className={styles[""]}
 function SimpleFadingTab() {
   const [timePeriod, setTimePeriod] = useState("month");
   return (

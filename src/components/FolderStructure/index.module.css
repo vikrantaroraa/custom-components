@@ -2,6 +2,8 @@
   background-color: #fff;
   padding: 15px 25px;
   min-width: 250px;
+  display: flex;
+  flex-direction: column;
 }
 
 .folder-structure-heading {
@@ -19,3 +21,7 @@
 /* .collapsible-component .file {
   background-color: lightcoral;
 } */
+
+.folder-structure-siblings-container {
+  display: flex;
+}

@@ -83,7 +83,7 @@ function FolderStructure() {
         ))}
 
         {/* STATIC HARD CODED FOLDER STRUCTURE - DO NOT DELETE */}
-        <CollapsibleComponent folderName={"src"}>
+        {/* <CollapsibleComponent folderName={"src"}>
           <CollapsibleComponent folderName={"api"}></CollapsibleComponent>
           <CollapsibleComponent folderName={"assets"}></CollapsibleComponent>
           <CollapsibleComponent folderName={"components"}>
@@ -122,7 +122,7 @@ function FolderStructure() {
           <FileElement fileName="package.json" />
           <FileElement fileName="README.md" />
           <FileElement fileName="tsconfig.json" />
-        </CollapsibleComponent>
+        </CollapsibleComponent> */}
       </div>
     </div>
   );

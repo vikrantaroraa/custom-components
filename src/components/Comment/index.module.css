@@ -58,8 +58,8 @@
   display: flex;
   align-items: center;
   gap: 24px;
-  /* background-color: palegoldenrod; */
   margin-bottom: 10px;
+  /* background-color: palegoldenrod; */
 }
 
 .like {
@@ -94,9 +94,16 @@
 
 .reply-section {
   display: flex;
+  flex-direction: column;
   height: auto;
   width: 100%;
   /* background-color: lightsalmon; */
+}
+
+.avatar-and-input-container {
+  display: flex;
+  width: 100%;
+  margin-bottom: 10px;
 }
 
 .reply-avatar {
@@ -121,7 +128,7 @@
 
 .input-container {
   width: 100%;
-  /* background-color: red; */
+  background-color: red;
   margin-bottom: 10px;
 }
 
@@ -140,18 +147,18 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
-  /* background-color: lightcoral; */
   align-items: center;
+  /* background-color: lightcoral; */
 }
 
-.emoji-container {
+.emoji-icon-container {
   height: 30px;
   width: 30px;
   border-radius: 100%;
   cursor: pointer;
 }
 
-.emoji-container img {
+.emoji-icon-container img {
   height: 100%;
   width: 100%;
 }
@@ -180,4 +187,19 @@
 .post-reply-button:hover,
 .cancel-button:hover {
   background-color: #efefef;
+}
+
+.emojis-container {
+  display: flex;
+  flex-wrap: wrap;
+  height: auto;
+  width: 100%;
+  padding: 10px;
+  gap: 10px;
+  background-color: #f0f0f0;
+}
+
+.emoji {
+  cursor: pointer;
+  font-size: 25px;
 }

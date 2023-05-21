@@ -5,13 +5,53 @@ import dislikeIcon from "../../assets/Comment/thumb-down.svg";
 import emojiIcon from "../../assets/Comment/emoji.svg";
 import userIcon from "../../assets/Comment/boy.svg";
 
+const emojis = [
+  // "\u{}",
+  "\u{1F642}",
+  "\u{1F600}",
+  "\u{1f602}",
+  "\u{1f60d}",
+  "\u{1f62d}",
+  "\u{1f618}",
+  "\u{1f60a}",
+  "\u{1f44c}",
+  "\u{1f601}",
+  "\u{1f629}",
+  "\u{1f60f}",
+  "\u{1f612}",
+  "\u{1f61c}",
+  "\u{1F30D}",
+  "\u{1F389}",
+  "\u{1F525}",
+  "\u{1F4A1}",
+  "\u{1F604}",
+  "\u{1F34A}",
+  "\u{1F344}",
+  "\u{1F37F}",
+  "\u{1F363}",
+  "\u{1F370}",
+  "\u{1f355}",
+  "\u{1f354}",
+  "\u{1f35f}",
+  "\u{1f604}",
+  "\u{1f48e}",
+  "\u{23f0}",
+  "\u{1f4da}",
+];
+
 // className={styles[""]}
 function Comment() {
   const [likeCount, setLikeCount] = useState(0);
   const [isReplySectionVisible, setIsReplySectionVisible] = useState(false);
+  const [commentReply, setCommentReply] = useState("");
+  const [isEmojiContainerVisible, setIsEmojiContainerVisible] = useState(false);
 
   const incrementLikes = () => {
     setLikeCount((prevCount) => prevCount + 1);
+  };
+
+  const handleEmojiClick = (emoji: string) => {
+    setCommentReply(commentReply + emoji);
   };
 
   return (
@@ -60,30 +100,58 @@ function Comment() {
         </div>
         {isReplySectionVisible && (
           <div className={styles["reply-section"]}>
-            <div className={styles["reply-avatar"]}>
-              <div className={styles["reply-image-container"]}>
-                <img src={userIcon} alt="user-icon" />
-              </div>
-            </div>
-            <div className={styles["input-and-buttons-container"]}>
-              <div className={styles["input-container"]}>
-                <input type="text" placeholder="Add reply here..." />
-              </div>
-              <div className={styles["emoji-and-buttons-container"]}>
-                <div className={styles["emoji-container"]}>
-                  <img src={emojiIcon} alt="emoji-icon" />
+            <div className={styles["avatar-and-input-container"]}>
+              <div className={styles["reply-avatar"]}>
+                <div className={styles["reply-image-container"]}>
+                  <img src={userIcon} alt="user-icon" />
                 </div>
-                <div className={styles["reply-and-cancel-buttons-container"]}>
-                  <button
-                    className={styles["post-reply-button"]}
-                    onClick={() => setIsReplySectionVisible(false)}
+              </div>
+              <div className={styles["input-and-buttons-container"]}>
+                <div className={styles["input-container"]}>
+                  <input
+                    type="text"
+                    placeholder="Add reply here..."
+                    value={commentReply}
+                    onChange={(event) => setCommentReply(event.target.value)}
+                  />
+                </div>
+                <div className={styles["emoji-and-buttons-container"]}>
+                  <div
+                    className={styles["emoji-icon-container"]}
+                    onClick={() => setIsEmojiContainerVisible(true)}
                   >
-                    Cancel
-                  </button>
-                  <button className={styles["cancel-button"]}>Reply</button>
+                    <img src={emojiIcon} alt="emoji-icon" />
+                  </div>
+                  <div className={styles["reply-and-cancel-buttons-container"]}>
+                    <button
+                      className={styles["post-reply-button"]}
+                      onClick={() => {
+                        setIsReplySectionVisible(false);
+                        setIsEmojiContainerVisible(false);
+                      }}
+                    >
+                      Cancel
+                    </button>
+                    <button className={styles["cancel-button"]}>Reply</button>
+                  </div>
                 </div>
               </div>
             </div>
+            {isEmojiContainerVisible && (
+              <div className={styles["emojis-container"]}>
+                {emojis.map((emoji, index) => {
+                  return (
+                    <span
+                      className={styles["emoji"]}
+                      key={index}
+                      onClick={() => handleEmojiClick(emoji)}
+                    >
+                      {emoji}
+                    </span>
+                  );
+                })}
+              </div>
+            )}
           </div>
         )}
       </div>

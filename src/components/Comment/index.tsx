@@ -8,6 +8,7 @@ import userIcon from "../../assets/Comment/boy.svg";
 // className={styles[""]}
 function Comment() {
   const [likeCount, setLikeCount] = useState(0);
+  const [isReplySectionVisible, setIsReplySectionVisible] = useState(false);
 
   const incrementLikes = () => {
     setLikeCount((prevCount) => prevCount + 1);
@@ -50,29 +51,41 @@ function Comment() {
           <div className={styles["dislike"]}>
             <img src={dislikeIcon} alt="dislike-icon" />
           </div>
-          <div className={styles["reply-button"]}>Reply</div>
+          <button
+            className={styles["reply-button"]}
+            onClick={() => setIsReplySectionVisible(true)}
+          >
+            Reply
+          </button>
         </div>
-        <div className={styles["reply-section"]}>
-          <div className={styles["reply-avatar"]}>
-            <div className={styles["reply-image-container"]}>
-              <img src={userIcon} alt="user-icon" />
-            </div>
-          </div>
-          <div className={styles["input-and-buttons-container"]}>
-            <div className={styles["input-container"]}>
-              <input type="text" />
-            </div>
-            <div className={styles["emoji-and-buttons-container"]}>
-              <div className={styles["emoji-container"]}>
-                <img src={emojiIcon} alt="emoji-icon" />
-              </div>
-              <div className={styles["reply-and-cancel-buttons-container"]}>
-                <button className={styles["post-reply-button"]}>Cancel</button>
-                <button className={styles["cancel-button"]}>Reply</button>
+        {isReplySectionVisible && (
+          <div className={styles["reply-section"]}>
+            <div className={styles["reply-avatar"]}>
+              <div className={styles["reply-image-container"]}>
+                <img src={userIcon} alt="user-icon" />
               </div>
             </div>
+            <div className={styles["input-and-buttons-container"]}>
+              <div className={styles["input-container"]}>
+                <input type="text" placeholder="Add reply here..." />
+              </div>
+              <div className={styles["emoji-and-buttons-container"]}>
+                <div className={styles["emoji-container"]}>
+                  <img src={emojiIcon} alt="emoji-icon" />
+                </div>
+                <div className={styles["reply-and-cancel-buttons-container"]}>
+                  <button
+                    className={styles["post-reply-button"]}
+                    onClick={() => setIsReplySectionVisible(false)}
+                  >
+                    Cancel
+                  </button>
+                  <button className={styles["cancel-button"]}>Reply</button>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </div>
   );

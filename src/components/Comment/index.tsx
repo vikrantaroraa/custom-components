@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./index.module.css";
 import likeIcon from "../../assets/Comment/thumb-up.svg";
 import dislikeIcon from "../../assets/Comment/thumb-down.svg";
@@ -45,6 +45,7 @@ function Comment() {
   const [isReplySectionVisible, setIsReplySectionVisible] = useState(false);
   const [commentReply, setCommentReply] = useState("");
   const [isEmojiContainerVisible, setIsEmojiContainerVisible] = useState(false);
+  const [commentRepliesArray, setCommentRepliesArray] = useState<string[]>([]);
 
   const incrementLikes = () => {
     setLikeCount((prevCount) => prevCount + 1);
@@ -53,6 +54,18 @@ function Comment() {
   const handleEmojiClick = (emoji: string) => {
     setCommentReply(commentReply + emoji);
   };
+
+  const postCommentReply = () => {
+    console.log("chala");
+    console.log(commentReply);
+    setCommentRepliesArray((prevArray) => [...prevArray, commentReply]);
+    setCommentReply("");
+    setIsReplySectionVisible(false);
+  };
+
+  useEffect(() => {
+    console.log("ye hai length:", commentRepliesArray.length);
+  }, []);
 
   return (
     <div className={styles["comment"]}>
@@ -68,14 +81,8 @@ function Comment() {
             <div className={styles["date"]}>7 days ago</div>
           </div>
           <div className={styles["comment-info"]}>
-            comment this is acomment this is acomment this is acomment this is
-            comment this is acomment this is acomment this is acomment this is
-            comment this is acomment this is acomment this is acomment this is
-            comment this is acomment this is acomment this is acomment this is
-            comment this is acomment this is acomment this is acomment this is
-            comment this is acomment this is acomment this is acomment this is
-            comment this is acomment this is acomment this is acomment this is
-            this is a name
+            This is a comment. A placeholder comment being used in this Comment
+            component to which the users can post their reply.
           </div>
         </div>
         <div className={styles["like-and-dislike-buttons"]}>
@@ -98,6 +105,24 @@ function Comment() {
             Reply
           </button>
         </div>
+        {commentRepliesArray.length !== 0 && (
+          <div className={styles["comment-replies-container"]}>
+            {commentRepliesArray.map((commentReply) => {
+              return (
+                <div className={styles["comment-reply"]}>
+                  <div className={styles["comment-reply-user-icon-container"]}>
+                    <div className={styles["comment-reply-user-icon"]}>
+                      <img src={userIcon} alt="user-icon" />
+                    </div>
+                  </div>
+                  <div className={styles["comment-reply-data"]}>
+                    <p>{commentReply}</p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        )}
         {isReplySectionVisible && (
           <div className={styles["reply-section"]}>
             <div className={styles["avatar-and-input-container"]}>
@@ -132,7 +157,12 @@ function Comment() {
                     >
                       Cancel
                     </button>
-                    <button className={styles["cancel-button"]}>Reply</button>
+                    <button
+                      className={styles["cancel-button"]}
+                      onClick={postCommentReply}
+                    >
+                      Reply
+                    </button>
                   </div>
                 </div>
               </div>

@@ -56,16 +56,16 @@ function Comment() {
   };
 
   const postCommentReply = () => {
-    console.log("chala");
-    console.log(commentReply);
+    // console.log("chala");
+    // console.log(commentReply);
     setCommentRepliesArray((prevArray) => [...prevArray, commentReply]);
     setCommentReply("");
     setIsReplySectionVisible(false);
   };
 
-  useEffect(() => {
-    console.log("ye hai length:", commentRepliesArray.length);
-  }, []);
+  // useEffect(() => {
+  //   console.log("ye hai length:", commentRepliesArray.length);
+  // }, []);
 
   return (
     <div className={styles["comment"]}>
